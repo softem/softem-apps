@@ -1,4 +1,7 @@
 .classpath
+.factorypath
 .project
+.apt_generated/*
+.externalToolBuilders/*
 .settings/*
 *.class
