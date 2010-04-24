@@ -1,6 +1,5 @@
 package jp.co.softem.apps.service.master;
 
-import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
@@ -11,9 +10,7 @@ import org.slim3.util.BeanUtil;
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.Transaction;
 
-public abstract class BaseService<T> implements Serializable {
-
-    private static final long serialVersionUID = 1L;
+public abstract class BaseService<T> {
 
     private ModelMeta<T> meta;
 
