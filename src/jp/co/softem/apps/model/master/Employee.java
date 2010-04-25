@@ -12,6 +12,16 @@ public class Employee implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    private String employeeName;
+
+    public String getEmployeeName() {
+        return employeeName;
+    }
+
+    public void setEmployeeName(String employeeName) {
+        this.employeeName = employeeName;
+    }
+
     @Attribute(primaryKey = true)
     private Key key;
 
@@ -20,7 +30,7 @@ public class Employee implements Serializable {
 
     /**
      * Returns the key.
-     *
+     * 
      * @return the key
      */
     public Key getKey() {
@@ -29,7 +39,7 @@ public class Employee implements Serializable {
 
     /**
      * Sets the key.
-     *
+     * 
      * @param key
      *            the key
      */
@@ -39,7 +49,7 @@ public class Employee implements Serializable {
 
     /**
      * Returns the version.
-     *
+     * 
      * @return the version
      */
     public Long getVersion() {
@@ -48,7 +58,7 @@ public class Employee implements Serializable {
 
     /**
      * Sets the version.
-     *
+     * 
      * @param version
      *            the version
      */

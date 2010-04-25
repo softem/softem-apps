@@ -9,8 +9,7 @@ public class IndexController extends BaseController {
 
     @Override
     public Navigation run() throws Exception {
-        EmployeeService service = new EmployeeService();
-        requestScope("list", service.getAll());
+        requestScope("list", new EmployeeService().getAll());
         return forward("index.jsp");
     }
 

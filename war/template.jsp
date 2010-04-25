@@ -8,7 +8,14 @@
     <title><fmt:message bundle="${rs}" key="application.name"/></title>
   </head>
   <body>
-    <div id="content"><jsp:include page="${page}" />
+	<div id="menu">
+		<ul>
+			<li><a href="${f:url('home')}"><fmt:message bundle="${rs}" key="home"/><span>HOME</span></a></li>
+		</ul>
+	</div><!-- end of menu  -->
+
+    <div id="content">
+    	<jsp:include page="${page}" />
     </div><!-- end of content -->
   </body>
 </html>
