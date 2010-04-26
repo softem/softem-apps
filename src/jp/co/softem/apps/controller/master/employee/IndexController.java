@@ -15,7 +15,7 @@ public class IndexController extends BaseController {
         if (words == null || words.length() == 0) {
             requestScope("list", service.getAll());
         } else {
-            requestScope("list", service.findByAuthorityName(words));
+            requestScope("list", service.getByAuthorityName(words));
         }
         return forward("index.jsp");
     }

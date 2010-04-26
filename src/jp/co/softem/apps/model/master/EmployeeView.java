@@ -2,23 +2,50 @@ package jp.co.softem.apps.model.master;
 
 import java.io.Serializable;
 
+import com.google.appengine.api.datastore.Key;
+
 import org.slim3.datastore.Attribute;
 import org.slim3.datastore.Model;
 
-import com.google.appengine.api.datastore.Key;
-
 @Model(schemaVersion = 1)
-public class Authority implements Serializable {
+public class EmployeeView implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Attribute(primaryKey = true)
-    private Key authorityKey;
+    private Key key;
 
     @Attribute(version = true)
     private Long version;
 
+    private Key employeeKey;
+    private String employeeName;
+    private Key authorityKey;
     private String authorityName;
+
+    public Key getEmployeeKey() {
+        return employeeKey;
+    }
+
+    public void setEmployeeKey(Key employeeKey) {
+        this.employeeKey = employeeKey;
+    }
+
+    public String getEmployeeName() {
+        return employeeName;
+    }
+
+    public void setEmployeeName(String employeeName) {
+        this.employeeName = employeeName;
+    }
+
+    public Key getAuthorityKey() {
+        return authorityKey;
+    }
+
+    public void setAuthorityKey(Key authorityKey) {
+        this.authorityKey = authorityKey;
+    }
 
     public String getAuthorityName() {
         return authorityName;
@@ -33,8 +60,8 @@ public class Authority implements Serializable {
      * 
      * @return the key
      */
-    public Key getAuthorityKey() {
-        return authorityKey;
+    public Key getKey() {
+        return key;
     }
 
     /**
@@ -43,8 +70,8 @@ public class Authority implements Serializable {
      * @param key
      *            the key
      */
-    public void setAuthorityKey(Key key) {
-        this.authorityKey = key;
+    public void setKey(Key key) {
+        this.key = key;
     }
 
     /**
@@ -70,10 +97,7 @@ public class Authority implements Serializable {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result =
-            prime
-                * result
-                + ((authorityKey == null) ? 0 : authorityKey.hashCode());
+        result = prime * result + ((key == null) ? 0 : key.hashCode());
         return result;
     }
 
@@ -88,12 +112,12 @@ public class Authority implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        Authority other = (Authority) obj;
-        if (authorityKey == null) {
-            if (other.authorityKey != null) {
+        EmployeeView other = (EmployeeView) obj;
+        if (key == null) {
+            if (other.key != null) {
                 return false;
             }
-        } else if (!authorityKey.equals(other.authorityKey)) {
+        } else if (!key.equals(other.key)) {
             return false;
         }
         return true;

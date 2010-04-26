@@ -14,7 +14,7 @@ public class DeleteController extends Controller {
 
     @Override
     public Navigation run() throws Exception {
-        service.delete(asKey(meta.key), asLong(meta.version));
+        service.delete(asKey(meta.authorityKey), asLong(meta.version));
         return redirect(basePath);
-    }   
+    }
 }

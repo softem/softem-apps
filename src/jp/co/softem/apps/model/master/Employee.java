@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 import org.slim3.datastore.Attribute;
 import org.slim3.datastore.Model;
-import org.slim3.datastore.ModelRef;
 
 import com.google.appengine.api.datastore.Key;
 
@@ -12,6 +11,12 @@ import com.google.appengine.api.datastore.Key;
 public class Employee implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
+    @Attribute(primaryKey = true)
+    private Key employeeKey;
+
+    @Attribute(version = true)
+    private Long version;
 
     private String employeeName;
 
@@ -23,26 +28,13 @@ public class Employee implements Serializable {
         this.employeeName = employeeName;
     }
 
-    private ModelRef<Authority> authorityRef =
-        new ModelRef<Authority>(Authority.class);
-
-    public ModelRef<Authority> getAuthorityRef() {
-        return authorityRef;
-    }
-
-    @Attribute(primaryKey = true)
-    private Key key;
-
-    @Attribute(version = true)
-    private Long version;
-
     /**
      * Returns the key.
      * 
      * @return the key
      */
-    public Key getKey() {
-        return key;
+    public Key getEmployeeKey() {
+        return employeeKey;
     }
 
     /**
@@ -51,8 +43,8 @@ public class Employee implements Serializable {
      * @param key
      *            the key
      */
-    public void setKey(Key key) {
-        this.key = key;
+    public void setEmployeeKey(Key key) {
+        this.employeeKey = key;
     }
 
     /**
@@ -78,7 +70,10 @@ public class Employee implements Serializable {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((key == null) ? 0 : key.hashCode());
+        result =
+            prime
+                * result
+                + ((employeeKey == null) ? 0 : employeeKey.hashCode());
         return result;
     }
 
@@ -94,11 +89,11 @@ public class Employee implements Serializable {
             return false;
         }
         Employee other = (Employee) obj;
-        if (key == null) {
-            if (other.key != null) {
+        if (employeeKey == null) {
+            if (other.employeeKey != null) {
                 return false;
             }
-        } else if (!key.equals(other.key)) {
+        } else if (!employeeKey.equals(other.employeeKey)) {
             return false;
         }
         return true;

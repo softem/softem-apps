@@ -11,14 +11,17 @@
 <table class="form">
 	<tr>
 		<th><fmt:message bundle="${rs}" key="label.employeeName"/></th>
-		<td><input type="text" ${f:text("employeeName")} class="${f:errorClass('employeeName', 'err')}"/>${f:h(errors.employeeName)}</td>
+		<td>
+			<input type="text" ${f:text("employeeName")} class="${f:errorClass('employeeName', 'err')}"/>
+			<span class="error">${f:h(errors.employeeName)}</span>
+		</td>
 	</tr>
 	<tr>
 		<th><fmt:message bundle="${rs}" key="label.authorityName"/></th>
 		<td>
 			<select name="authority">
 			<c:forEach var="e" items="${authorityList}">
-				<option ${f:select("authority", f:h(e.key))}>${f:h(e.authorityName)}</option>
+				<option ${f:select("authority", f:h(e.authorityKey))}>${f:h(e.authorityName)}</option>
 			</c:forEach>
 			</select>
 		</td>
