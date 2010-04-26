@@ -12,7 +12,7 @@ import com.google.appengine.api.datastore.Transaction;
 
 public abstract class BaseService<T> {
 
-    private ModelMeta<T> meta;
+    protected ModelMeta<T> meta;
 
     public BaseService(ModelMeta<T> meta) {
         this.meta = meta;

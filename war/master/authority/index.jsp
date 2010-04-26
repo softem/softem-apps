@@ -5,19 +5,11 @@
 	<a href="${f:url('create')}"><fmt:message bundle="${rs}" key="create"/></a>
 </div>
 
-<h1><fmt:message bundle="${rs}" key="employee"/></h1>
-
-<form action="${f:url('index')}" method="post">
-<p>
-<input type="text" ${f:text("words")} class="${f:errorClass('words', 'err')}"/>${f:h(errors.words)}
-<input type="submit" value="<fmt:message bundle="${rs}" key="find"/>"/>
-</p>
-</form>
+<h1><fmt:message bundle="${rs}" key="authority"/>(${fn:length(list)}<fmt:message bundle="${rs}" key="count"/>)</h1>
 
 <table class="list">
 	<thead>
 		<tr>
-			<th><fmt:message bundle="${rs}" key="label.employeeName"/></th>
 			<th><fmt:message bundle="${rs}" key="label.authorityName"/></th>
 			<th><fmt:message bundle="${rs}" key="action"/></th>
 		</tr>
@@ -25,8 +17,7 @@
 	<tbody>
 	<c:forEach var="e" items="${list}" varStatus="status">
 		<tr<c:if test="${status.count%2==0}"> class="odd"</c:if>>
-			<td>${f:h(e.employeeName)}</td>
-			<td>${f:h(e.authorityRef.model.authorityName)}</td>
+			<td>${f:h(e.authorityName)}</td>
 			<c:set var="editUrl" value="edit/${f:h(e.key)}/${e.version}"/>
 			<c:set var="deleteUrl" value="delete/${f:h(e.key)}/${e.version}"/>
 			<td>

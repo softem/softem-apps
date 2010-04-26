@@ -2,10 +2,11 @@ package jp.co.softem.apps.model.master;
 
 import java.io.Serializable;
 
-import com.google.appengine.api.datastore.Key;
-
 import org.slim3.datastore.Attribute;
 import org.slim3.datastore.Model;
+import org.slim3.datastore.ModelRef;
+
+import com.google.appengine.api.datastore.Key;
 
 @Model(schemaVersion = 1)
 public class Employee implements Serializable {
@@ -20,6 +21,13 @@ public class Employee implements Serializable {
 
     public void setEmployeeName(String employeeName) {
         this.employeeName = employeeName;
+    }
+
+    private ModelRef<Authority> authorityRef =
+        new ModelRef<Authority>(Authority.class);
+
+    public ModelRef<Authority> getAuthorityRef() {
+        return authorityRef;
     }
 
     @Attribute(primaryKey = true)
