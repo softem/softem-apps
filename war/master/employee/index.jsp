@@ -7,6 +7,8 @@
 
 <h1><fmt:message bundle="${rs}" key="employee"/></h1>
 
+<p id="message">${f:h(errors.message)}</p>
+
 <form action="${f:url('index')}" method="post">
 <p>
 <input type="text" ${f:text("words")} class="${f:errorClass('words', 'err')}"/>${f:h(errors.words)}

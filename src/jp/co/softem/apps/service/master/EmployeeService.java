@@ -41,31 +41,31 @@ public class EmployeeService extends BaseService<Employee> {
         return list;
     }
 
-    public void insert(Employee employee) {
+    public void insert(Employee entity) {
         GlobalTransaction gtx = Datastore.beginGlobalTransaction();
-        Key authKey = KeyFactory.stringToKey(employee.getAuthority());
+        Key authKey = KeyFactory.stringToKey(entity.getAuthority());
         Authority authority = gtx.get(AuthorityMeta.get(), authKey);
-        employee.getAuthorityRef().setModel(authority);
-        gtx.put(employee);
+        entity.getAuthorityRef().setModel(authority);
+        gtx.put(entity);
         gtx.commit();
     }
 
     public Employee update(Key key, Long version, Map<String, Object> input) {
         GlobalTransaction gtx = Datastore.beginGlobalTransaction();
-        Employee employee = gtx.get(baseMeta, key, version);
-        BeanUtil.copy(input, employee);
-        Key authKey = KeyFactory.stringToKey(employee.getAuthority());
+        Employee entity = gtx.get(baseMeta, key, version);
+        BeanUtil.copy(input, entity);
+        Key authKey = KeyFactory.stringToKey(entity.getAuthority());
         Authority authority = gtx.get(AuthorityMeta.get(), authKey);
-        employee.getAuthorityRef().setModel(authority);
-        gtx.put(employee);
+        entity.getAuthorityRef().setModel(authority);
+        gtx.put(entity);
         gtx.commit();
-        return employee;
+        return entity;
     }
 
     public void delete(Key key, Long version) {
         GlobalTransaction gtx = Datastore.beginGlobalTransaction();
-        Employee employee = gtx.get(baseMeta, key, version);
-        gtx.delete(employee.getKey(), employee.getKey());
+        Employee entity = gtx.get(baseMeta, key, version);
+        gtx.delete(entity.getKey(), entity.getKey());
         gtx.commit();
     }
 

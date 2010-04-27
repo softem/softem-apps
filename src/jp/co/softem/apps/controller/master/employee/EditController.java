@@ -17,8 +17,10 @@ public class EditController extends BaseController {
 
     @Override
     protected Navigation run() throws Exception {
-        Employee employee = service.get(asKey(meta.key), asLong(meta.version));
-        BeanUtil.copy(employee, request);
+        if (errors.isEmpty()) {
+            Employee e = service.get(asKey(meta.key), asLong(meta.version));
+            BeanUtil.copy(e, request);
+        }
         requestScope("authorityList", new AuthorityService().getAll());
         return forward("edit.jsp");
     }

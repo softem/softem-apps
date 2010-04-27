@@ -19,3 +19,4 @@
 </table>
 <p><input type="submit" value="<fmt:message bundle="${rs}" key="insert"/>"/></p>
 </form>
+<jsp:include page="/master/menu.jsp"></jsp:include>

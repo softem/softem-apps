@@ -14,8 +14,6 @@ public abstract class BaseService<T> {
 
     protected ModelMeta<T> baseMeta;
 
-    protected static final String MESSAGE = "message";
-
     public BaseService(ModelMeta<T> meta) {
         this.baseMeta = meta;
     }

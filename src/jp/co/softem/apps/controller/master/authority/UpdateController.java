@@ -17,7 +17,7 @@ public class UpdateController extends BaseController {
     @Override
     public Navigation run() throws Exception {
         if (!validate()) {
-            return forward("edit.jsp");
+            return forward("edit");
         }
         service.update(asKey(meta.key), asLong(meta.version), new RequestMap(
             request));

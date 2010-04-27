@@ -8,6 +8,8 @@
 <h1><fmt:message bundle="${rs}" key="authority"/></h1>
 
 <form action="${f:url('update')}" method="post">
+<input type="hidden" ${f:hidden("key")}/>
+<input type="hidden" ${f:hidden("version")}/>
 <table class="form">
 	<tr>
 		<th><fmt:message bundle="${rs}" key="label.authorityName"/></th>
@@ -19,3 +21,4 @@
 </table>
 <p><input type="submit" value="<fmt:message bundle="${rs}" key="update"/>"/></p>
 </form>
+<jsp:include page="/master/menu.jsp"></jsp:include>

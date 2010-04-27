@@ -3,7 +3,6 @@ package jp.co.softem.apps.model.master;
 import java.io.Serializable;
 
 import jp.co.softem.apps.meta.master.ProjectCompleteReportMeta;
-import jp.co.softem.apps.meta.master.ProjectTechnicalInfoMeta;
 
 import org.slim3.datastore.Attribute;
 import org.slim3.datastore.InverseModelListRef;
@@ -51,13 +50,13 @@ public class Employee implements Serializable {
     }
 
     @Attribute(persistent = false)
-    private InverseModelListRef<Employee, ProjectCompleteReport> projectCompleteReportRef =
-        new InverseModelListRef<Employee, ProjectCompleteReport>(
-            Employee.class,
+    private InverseModelListRef<ProjectCompleteReport, Employee> projectCompleteReportRef =
+        new InverseModelListRef<ProjectCompleteReport, Employee>(
+            ProjectCompleteReport.class,
             ProjectCompleteReportMeta.get().employeeRef,
             this);
 
-    public InverseModelListRef<Employee, ProjectCompleteReport> getProjectCompleteReportRef() {
+    public InverseModelListRef<ProjectCompleteReport, Employee> getProjectCompleteReportRef() {
         return projectCompleteReportRef;
     }
 

@@ -31,3 +31,4 @@
 </table>
 <p><input type="submit" value="<fmt:message bundle="${rs}" key="update"/>"/></p>
 </form>
+<jsp:include page="/master/menu.jsp"></jsp:include>

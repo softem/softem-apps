@@ -17,8 +17,7 @@ public class DeleteController extends BaseController {
     public Navigation run() throws Exception {
         Validators v = new Validators(request);
         if (!service.delete(asKey(meta.key), asLong(meta.version), v)) {
-            requestScope("list", new AuthorityService().getAll());
-            return forward("index.jsp");
+            return forward(basePath);
         }
         return redirect(basePath);
     }
