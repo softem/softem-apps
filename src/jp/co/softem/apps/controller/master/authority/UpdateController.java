@@ -6,8 +6,9 @@ import jp.co.softem.apps.service.master.AuthorityService;
 
 import org.slim3.controller.Navigation;
 import org.slim3.controller.validator.Validators;
+import org.slim3.util.RequestMap;
 
-public class DeleteController extends BaseController {
+public class UpdateController extends BaseController {
 
     private AuthorityService service = new AuthorityService();
 
@@ -15,11 +16,18 @@ public class DeleteController extends BaseController {
 
     @Override
     public Navigation run() throws Exception {
-        Validators v = new Validators(request);
-        if (!service.delete(asKey(meta.key), asLong(meta.version), v)) {
-            requestScope("list", new AuthorityService().getAll());
-            return forward("index.jsp");
+        if (!validate()) {
+            return forward("edit.jsp");
         }
+        service.update(asKey(meta.key), asLong(meta.version), new RequestMap(
+            request));
         return redirect(basePath);
     }
+
+    private boolean validate() {
+        Validators v = new Validators(request);
+        v.add(meta.authorityName, v.required());
+        return v.validate();
+    }
+
 }

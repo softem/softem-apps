@@ -1,16 +1,16 @@
 package jp.co.softem.apps.controller.master.employee;
 
-import jp.co.softem.apps.meta.master.EmployeeViewMeta;
+import jp.co.softem.apps.core.BaseController;
+import jp.co.softem.apps.meta.master.EmployeeMeta;
 import jp.co.softem.apps.service.master.EmployeeService;
 
-import org.slim3.controller.Controller;
 import org.slim3.controller.Navigation;
 
-public class DeleteController extends Controller {
+public class DeleteController extends BaseController {
 
     private EmployeeService service = new EmployeeService();
 
-    private EmployeeViewMeta meta = EmployeeViewMeta.get();
+    private EmployeeMeta meta = EmployeeMeta.get();
 
     @Override
     public Navigation run() throws Exception {

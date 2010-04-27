@@ -34,9 +34,11 @@
 				<a href="${f:url(deleteUrl)}" onclick="return confirm('delete OK?')"><fmt:message bundle="${rs}" key="delete"/></a>
 			</td>
 			<td>${f:h(e.employeeName)}</td>
-			<td>${f:h(e.authorityName)}</td>
+			<td>${f:h(e.authorityRef.model.authorityName)}</td>
 		</tr>
 	</c:forEach>
 	</tbody>
 </table>
 </c:if>
+
+<jsp:include page="/master/menu.jsp"></jsp:include>

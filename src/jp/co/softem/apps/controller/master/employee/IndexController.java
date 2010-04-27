@@ -7,7 +7,7 @@ import org.slim3.controller.Navigation;
 
 public class IndexController extends BaseController {
 
-    EmployeeService service = new EmployeeService();
+    private EmployeeService service = new EmployeeService();
 
     @Override
     public Navigation run() throws Exception {

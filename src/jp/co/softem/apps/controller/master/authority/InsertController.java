@@ -18,7 +18,7 @@ public class InsertController extends BaseController {
     @Override
     public Navigation run() throws Exception {
         if (!validate()) {
-            return forward("create");
+            return forward("create.jsp");
         }
         Authority e = new Authority();
         BeanUtil.copy(request, e);
@@ -26,7 +26,7 @@ public class InsertController extends BaseController {
         return redirect(basePath);
     }
 
-    protected boolean validate() {
+    private boolean validate() {
         Validators v = new Validators(request);
         v.add(meta.authorityName, v.required());
         return v.validate();

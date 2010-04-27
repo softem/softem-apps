@@ -14,11 +14,7 @@ public abstract class BaseController extends Controller {
             sessionScope("page", path + "index.jsp");
             return new Navigation(path, isRedirect);
         } else {
-            if (path.endsWith(".jsp")) {
-                sessionScope("page", basePath + path);
-            } else {
-                sessionScope("page", basePath + path + ".jsp");
-            }
+            sessionScope("page", basePath + path);
             return new Navigation("/template.jsp", isRedirect);
         }
     }

@@ -2,8 +2,13 @@ package jp.co.softem.apps.model.master;
 
 import java.io.Serializable;
 
+import jp.co.softem.apps.meta.master.ProjectCompleteReportMeta;
+import jp.co.softem.apps.meta.master.ProjectTechnicalInfoMeta;
+
 import org.slim3.datastore.Attribute;
+import org.slim3.datastore.InverseModelListRef;
 import org.slim3.datastore.Model;
+import org.slim3.datastore.ModelRef;
 
 import com.google.appengine.api.datastore.Key;
 
@@ -13,7 +18,7 @@ public class Employee implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Attribute(primaryKey = true)
-    private Key employeeKey;
+    private Key key;
 
     @Attribute(version = true)
     private Long version;
@@ -28,13 +33,41 @@ public class Employee implements Serializable {
         this.employeeName = employeeName;
     }
 
+    private String authority;
+
+    public String getAuthority() {
+        return authority;
+    }
+
+    public void setAuthority(String authority) {
+        this.authority = authority;
+    }
+
+    private ModelRef<Authority> authorityRef =
+        new ModelRef<Authority>(Authority.class);
+
+    public ModelRef<Authority> getAuthorityRef() {
+        return authorityRef;
+    }
+
+    @Attribute(persistent = false)
+    private InverseModelListRef<Employee, ProjectCompleteReport> projectCompleteReportRef =
+        new InverseModelListRef<Employee, ProjectCompleteReport>(
+            Employee.class,
+            ProjectCompleteReportMeta.get().employeeRef,
+            this);
+
+    public InverseModelListRef<Employee, ProjectCompleteReport> getProjectCompleteReportRef() {
+        return projectCompleteReportRef;
+    }
+
     /**
      * Returns the key.
      * 
      * @return the key
      */
-    public Key getEmployeeKey() {
-        return employeeKey;
+    public Key getKey() {
+        return key;
     }
 
     /**
@@ -43,8 +76,8 @@ public class Employee implements Serializable {
      * @param key
      *            the key
      */
-    public void setEmployeeKey(Key key) {
-        this.employeeKey = key;
+    public void setKey(Key key) {
+        this.key = key;
     }
 
     /**
@@ -70,10 +103,7 @@ public class Employee implements Serializable {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result =
-            prime
-                * result
-                + ((employeeKey == null) ? 0 : employeeKey.hashCode());
+        result = prime * result + ((key == null) ? 0 : key.hashCode());
         return result;
     }
 
@@ -89,11 +119,11 @@ public class Employee implements Serializable {
             return false;
         }
         Employee other = (Employee) obj;
-        if (employeeKey == null) {
-            if (other.employeeKey != null) {
+        if (key == null) {
+            if (other.key != null) {
                 return false;
             }
-        } else if (!employeeKey.equals(other.employeeKey)) {
+        } else if (!key.equals(other.key)) {
             return false;
         }
         return true;

@@ -7,7 +7,7 @@ import org.slim3.controller.Navigation;
 
 public class CreateController extends BaseController {
 
-    AuthorityService service = new AuthorityService();
+    private AuthorityService service = new AuthorityService();
 
     @Override
     protected Navigation run() throws Exception {

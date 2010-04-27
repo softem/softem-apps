@@ -2,16 +2,17 @@ package jp.co.softem.apps.model.master;
 
 import java.io.Serializable;
 
-import jp.co.softem.apps.meta.master.EmployeeMeta;
+import jp.co.softem.apps.meta.master.ProjectTechnicalInfoMeta;
 
 import org.slim3.datastore.Attribute;
 import org.slim3.datastore.InverseModelListRef;
 import org.slim3.datastore.Model;
+import org.slim3.datastore.ModelRef;
 
 import com.google.appengine.api.datastore.Key;
 
 @Model(schemaVersion = 1)
-public class Authority implements Serializable {
+public class ProjectCompleteReport implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -21,25 +22,32 @@ public class Authority implements Serializable {
     @Attribute(version = true)
     private Long version;
 
-    private String authorityName;
+    private String projectCompleteName;
+
+    public String getProjectCompleteName() {
+        return projectCompleteName;
+    }
+
+    public void setProjectCompleteName(String projectCompleteName) {
+        this.projectCompleteName = projectCompleteName;
+    }
+
+    private ModelRef<Employee> employeeRef =
+        new ModelRef<Employee>(Employee.class);
+
+    public ModelRef<Employee> getEmployeeRef() {
+        return employeeRef;
+    }
 
     @Attribute(persistent = false)
-    private InverseModelListRef<Employee, Authority> employeeListRef =
-        new InverseModelListRef<Employee, Authority>(
-            Employee.class,
-            EmployeeMeta.get().authorityRef,
+    private InverseModelListRef<ProjectTechnicalInfo, ProjectCompleteReport> projectTechnicalInfoListRef =
+        new InverseModelListRef<ProjectTechnicalInfo, ProjectCompleteReport>(
+            ProjectTechnicalInfo.class,
+            ProjectTechnicalInfoMeta.get().projectCompleteReportRef,
             this);
 
-    public String getAuthorityName() {
-        return authorityName;
-    }
-
-    public void setAuthorityName(String authorityName) {
-        this.authorityName = authorityName;
-    }
-
-    public InverseModelListRef<Employee, Authority> getEmployeeListRef() {
-        return employeeListRef;
+    public InverseModelListRef<ProjectTechnicalInfo, ProjectCompleteReport> getProjectTechnicalInfoListRef() {
+        return projectTechnicalInfoListRef;
     }
 
     /**
@@ -84,10 +92,7 @@ public class Authority implements Serializable {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result =
-            prime
-                * result
-                + ((key == null) ? 0 : key.hashCode());
+        result = prime * result + ((key == null) ? 0 : key.hashCode());
         return result;
     }
 
@@ -102,7 +107,7 @@ public class Authority implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        Authority other = (Authority) obj;
+        ProjectCompleteReport other = (ProjectCompleteReport) obj;
         if (key == null) {
             if (other.key != null) {
                 return false;

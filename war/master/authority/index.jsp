@@ -7,6 +7,8 @@
 
 <h1><fmt:message bundle="${rs}" key="authority"/></h1>
 
+<p id="message">${f:h(errors.message)}</p>
+
 <c:if test="${fn:length(list)>0}">
 <p class="count">${fn:length(list)}<fmt:message bundle="${rs}" key="count"/></p>
 <table class="list">
@@ -19,8 +21,8 @@
 	<tbody>
 	<c:forEach var="e" items="${list}" varStatus="status">
 		<tr<c:if test="${status.count%2==0}"> class="odd"</c:if>>
-			<c:set var="editUrl" value="edit/${f:h(e.authorityKey)}/${e.version}"/>
-			<c:set var="deleteUrl" value="delete/${f:h(e.authorityKey)}/${e.version}"/>
+			<c:set var="editUrl" value="edit/${f:h(e.key)}/${e.version}"/>
+			<c:set var="deleteUrl" value="delete/${f:h(e.key)}/${e.version}"/>
 			<td>
 				<a href="${f:url(editUrl)}"><fmt:message bundle="${rs}" key="edit"/></a>
 				<a href="${f:url(deleteUrl)}" onclick="return confirm('delete OK?')"><fmt:message bundle="${rs}" key="delete"/></a>
@@ -31,3 +33,5 @@
 	</tbody>
 </table>
 </c:if>
+
+<jsp:include page="/master/menu.jsp"></jsp:include>

@@ -2,16 +2,14 @@ package jp.co.softem.apps.model.master;
 
 import java.io.Serializable;
 
-import jp.co.softem.apps.meta.master.EmployeeMeta;
-
-import org.slim3.datastore.Attribute;
-import org.slim3.datastore.InverseModelListRef;
-import org.slim3.datastore.Model;
-
 import com.google.appengine.api.datastore.Key;
 
+import org.slim3.datastore.Attribute;
+import org.slim3.datastore.Model;
+import org.slim3.datastore.ModelRef;
+
 @Model(schemaVersion = 1)
-public class Authority implements Serializable {
+public class ProjectTechnicalInfo implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -21,25 +19,18 @@ public class Authority implements Serializable {
     @Attribute(version = true)
     private Long version;
 
-    private String authorityName;
+    private ModelRef<ProjectCompleteReport> projectCompleteReportRef =
+        new ModelRef<ProjectCompleteReport>(ProjectCompleteReport.class);
 
-    @Attribute(persistent = false)
-    private InverseModelListRef<Employee, Authority> employeeListRef =
-        new InverseModelListRef<Employee, Authority>(
-            Employee.class,
-            EmployeeMeta.get().authorityRef,
-            this);
+    private ModelRef<TechnicalInfo> technicalInfoRef =
+        new ModelRef<TechnicalInfo>(TechnicalInfo.class);
 
-    public String getAuthorityName() {
-        return authorityName;
+    public ModelRef<ProjectCompleteReport> getProjectCompleteReportRef() {
+        return projectCompleteReportRef;
     }
 
-    public void setAuthorityName(String authorityName) {
-        this.authorityName = authorityName;
-    }
-
-    public InverseModelListRef<Employee, Authority> getEmployeeListRef() {
-        return employeeListRef;
+    public ModelRef<TechnicalInfo> getTechnicalInfoRef() {
+        return technicalInfoRef;
     }
 
     /**
@@ -84,10 +75,7 @@ public class Authority implements Serializable {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result =
-            prime
-                * result
-                + ((key == null) ? 0 : key.hashCode());
+        result = prime * result + ((key == null) ? 0 : key.hashCode());
         return result;
     }
 
@@ -102,7 +90,7 @@ public class Authority implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        Authority other = (Authority) obj;
+        ProjectTechnicalInfo other = (ProjectTechnicalInfo) obj;
         if (key == null) {
             if (other.key != null) {
                 return false;

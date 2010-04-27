@@ -4,48 +4,50 @@ import java.util.List;
 import java.util.Map;
 
 import org.slim3.datastore.Datastore;
+import org.slim3.datastore.GlobalTransaction;
 import org.slim3.datastore.ModelMeta;
 import org.slim3.util.BeanUtil;
 
 import com.google.appengine.api.datastore.Key;
-import com.google.appengine.api.datastore.Transaction;
 
 public abstract class BaseService<T> {
 
-    protected ModelMeta<T> meta;
+    protected ModelMeta<T> baseMeta;
+
+    protected static final String MESSAGE = "message";
 
     public BaseService(ModelMeta<T> meta) {
-        this.meta = meta;
+        this.baseMeta = meta;
     }
 
     public T get(Key key, Long version) {
-        return (T) Datastore.get(meta, key, version);
+        return (T) Datastore.get(baseMeta, key, version);
     }
 
     public List<T> getAll() {
-        return Datastore.query(meta).asList();
+        return Datastore.query(baseMeta).asList();
     }
 
     public void insert(T entity) {
-        Transaction tx = Datastore.beginTransaction();
-        Datastore.put(tx, entity);
-        Datastore.commit(tx);
+        GlobalTransaction gtx = Datastore.beginGlobalTransaction();
+        gtx.put(entity);
+        gtx.commit();
     }
 
     public T update(Key key, Long version, Map<String, Object> input) {
-        Transaction tx = Datastore.beginTransaction();
-        T entity = (T) Datastore.get(tx, meta, key, version);
+        GlobalTransaction gtx = Datastore.beginGlobalTransaction();
+        T entity = gtx.get(baseMeta, key, version);
         BeanUtil.copy(input, entity);
-        Datastore.put(tx, entity);
-        Datastore.commit(tx);
+        gtx.put(entity);
+        gtx.commit();
         return entity;
     }
 
     public void delete(Key key, Long version) {
-        Transaction tx = Datastore.beginTransaction();
-        Datastore.get(tx, meta, key, version);
-        Datastore.delete(tx, key);
-        Datastore.commit(tx);
+        GlobalTransaction gtx = Datastore.beginGlobalTransaction();
+        gtx.get(baseMeta, key, version);
+        gtx.delete(key);
+        gtx.commit();
     }
 
 }
