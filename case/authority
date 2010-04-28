@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://localhost:8888/" />
+<title>authority</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">authority</td></tr>
+</thead><tbody>
+<!--権限マスタ -->
+<tr>
+	<td>open</td>
+	<td>/authority/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=新規登録</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>authorityName</td>
+	<td>管理者</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='新規登録']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=新規登録</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>authorityName</td>
+	<td>一般</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='新規登録']</td>
+	<td></td>
+</tr>
+<!--社員マスタ-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=社員マスタ</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=新規登録</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>employeeName</td>
+	<td>かんりしゃ</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='新規登録']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=新規登録</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>employeeName</td>
+	<td>いっぱん</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>authority</td>
+	<td>label=一般</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='新規登録']</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

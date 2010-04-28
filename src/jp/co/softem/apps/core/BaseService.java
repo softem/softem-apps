@@ -9,8 +9,11 @@ import org.slim3.datastore.ModelMeta;
 import org.slim3.util.BeanUtil;
 
 import com.google.appengine.api.datastore.Key;
+import com.google.appengine.api.datastore.Transaction;
 
 public abstract class BaseService<T> {
+
+    protected static final int MAXIMUM = 1000;
 
     protected ModelMeta<T> baseMeta;
 
@@ -46,6 +49,20 @@ public abstract class BaseService<T> {
         gtx.get(baseMeta, key, version);
         gtx.delete(key);
         gtx.commit();
+    }
+
+    public void deleteAll() {
+        Transaction tx = Datastore.beginTransaction();
+        while (true) {
+            List<Key> keyList =
+                Datastore.query(baseMeta).offset(0).limit(MAXIMUM).asKeyList();
+            if (keyList.size() < 1) {
+                break;
+            }
+            Datastore.delete(keyList);
+            // TODO: 逐次コミット？
+        }
+        tx.commit();
     }
 
 }

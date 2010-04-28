@@ -12,6 +12,8 @@ public abstract class BaseController extends Controller {
 
     public static String MESSAGE = "message";
 
+    public static String ENCODE = "UTF-8";
+
     protected String onErrorPath;
 
     @Override

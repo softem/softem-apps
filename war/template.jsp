@@ -9,7 +9,6 @@
 </head>
 <body>
 	<div id="menu">
-		<a href="${f:url('/')}"><fmt:message bundle="${rs}" key="home"/><span>HOME</span></a>
 		<a href="${f:url('/master')}"><fmt:message bundle="${rs}" key="master"/><span>MASTER</span></a>
 	</div><!-- end of menu  -->
 
@@ -19,8 +18,7 @@
 
 	<div id="footer">
 		<div id="navigation">
-			<a href="${f:url('/')}">HOME</a> | 
-			<a href="${f:url('/master')}">MASTER</a>
+			<a href="${f:url('/master')}">MASTER</a> 
 		</div>
 		<div id="copyright">&copy;2010 SOFTEM</div>
 	</div>

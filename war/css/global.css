@@ -7,10 +7,11 @@ h1 {color:#ff5300; clear:both; font-size:130%; font-weight:bold; text-indent:-2p
 
 /* margin */
 #menu {padding:1em 30px 0 30px;}
-.actions {padding:.5em 30px;}
+.actions {height:1em; padding:.5em 30px;}
 .masters {padding:1em 30px 0 30px; text-align:center;}
 #content p {margin:1em 30px 0 30px;}
 #content table {margin:0 30px 0 30px;}
+#content ul {margin:0 30px 0 30px;}
 #footer {padding:1em 30px 1em 30px; margin-top:2em;}
 #copyright {margin-top:1em;}
 h1 {margin:1em 30px 1em 30px;}
@@ -23,6 +24,7 @@ th, td {padding:2px 4px;}
 .form {border-collapse:separate; border-spacing:1px;}
 .form th {background:#a67f00; font-size:80%; color:#ffde73; }
 .odd {background:#eee;}
+
 .count {font-size:80%; padding-bottom:2px;}
 .error {color:#f00; margin-left:3px;}
 
@@ -34,4 +36,3 @@ th, td {padding:2px 4px;}
 .actions a {color:#a63600; font-size:90%;}
 
 #footer {background:#eee; font-size:80%; text-align:center;}
-

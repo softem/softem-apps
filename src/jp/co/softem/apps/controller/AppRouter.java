@@ -6,10 +6,10 @@ public class AppRouter extends RouterImpl {
 
     public AppRouter() {
         addRouting(
-            "/{app}/{sub}/edit/{key}/{version}",
-            "/{app}/{sub}/edit?key={key}&version={version}");
+            "/{app}/edit/{key}/{version}",
+            "/{app}/edit?key={key}&version={version}");
         addRouting(
-            "/{app}/{sub}/delete/{key}/{version}",
-            "/{app}/{sub}/delete?key={key}&version={version}");
+            "/{app}/delete/{key}/{version}",
+            "/{app}/delete?key={key}&version={version}");
     }
 }

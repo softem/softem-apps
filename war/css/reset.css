@@ -17,8 +17,9 @@ address,caption,cite,code,dfn,em,strong,th,var {
 	font-weight: normal;
 	font-style: normal;
 }
-ol,ul {
-	list-style: none;
+li {
+	margin-left:1em;
+	line-height:1.5em;
 }
 caption,th {
 	text-align: left;
