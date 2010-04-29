@@ -1,6 +1,9 @@
 package jp.co.softem.apps.controller.authority;
 
+import java.util.List;
+
 import jp.co.softem.apps.core.BaseController;
+import jp.co.softem.apps.model.Authority;
 import jp.co.softem.apps.service.AuthorityService;
 
 import org.slim3.controller.Navigation;
@@ -11,13 +14,11 @@ public class IndexController extends BaseController {
 
     @Override
     protected Navigation run() throws Exception {
-        requestScope("list", new AuthorityService().getAll());
-        String words = asString("words");
-        if (words == null || words.length() == 0) {
-            requestScope("list", service.getAll());
-        } else {
-            requestScope("list", service.getByAuthorityName(words));
-        }
+        List<Authority> list = service.list(offset(), LIMIT);
+        int total = service.count();
+        int count = list.size();
+        requestScope("pagenator", createPagenator(total, count));
+        requestScope("list", list);
         return forward("index.jsp");
     }
 

@@ -80,7 +80,7 @@
 </tr>
 <tr>
 	<td>select</td>
-	<td>authority</td>
+	<td>authorityKey</td>
 	<td>label=一般</td>
 </tr>
 <tr>

@@ -24,7 +24,7 @@ public class Employee implements Serializable {
 
     private String employeeName;
 
-    private String authority;
+    private String authorityKey;
 
     private ModelRef<Authority> authorityRef =
         new ModelRef<Authority>(Authority.class);
@@ -44,12 +44,12 @@ public class Employee implements Serializable {
         this.employeeName = employeeName;
     }
 
-    public String getAuthority() {
-        return authority;
+    public String getAuthorityKey() {
+        return authorityKey;
     }
 
-    public void setAuthority(String authority) {
-        this.authority = authority;
+    public void setAuthorityKey(String authorityKey) {
+        this.authorityKey = authorityKey;
     }
 
     public ModelRef<Authority> getAuthorityRef() {

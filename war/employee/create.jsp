@@ -19,7 +19,7 @@
 	<tr>
 		<th><fmt:message bundle="${rs}" key="label.authorityName"/></th>
 		<td>
-			<select name="authority">
+			<select name="authorityKey">
 			<c:forEach var="e" items="${authorityList}">
 				<option ${f:select("authority", f:h(e.key))}>${f:h(e.authorityName)}</option>
 			</c:forEach>

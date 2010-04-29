@@ -9,16 +9,9 @@
 
 <p id="message">${f:h(errors.message)}</p>
 
-<form action="${f:url('index')}" method="post">
-<p>
-<fmt:message bundle="${rs}" key="label.authorityName"/>
-<input type="text" ${f:text("words")} class="${f:errorClass('words', 'err')}"/>${f:h(errors.words)}
-<input type="submit" value="<fmt:message bundle="${rs}" key="find"/>"/>
-</p>
-</form>
-
 <c:if test="${fn:length(list)>0}">
-<p class="count">${fn:length(list)}<fmt:message bundle="${rs}" key="count"/></p>
+<p>${pagenator.navigation}</p>
+<p class="count">${pagenator.label}</p>
 <table class="list">
 	<thead>
 		<tr>

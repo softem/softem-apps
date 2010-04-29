@@ -29,6 +29,14 @@ public abstract class BaseService<T> {
         return Datastore.query(baseMeta).asList();
     }
 
+    public List<T> list(int offset, int limit) {
+        return Datastore.query(baseMeta).offset(offset).limit(limit).asList();
+    }
+
+    public int count() {
+        return Datastore.query(baseMeta).count();
+    }
+
     public void insert(T entity) {
         GlobalTransaction gtx = Datastore.beginGlobalTransaction();
         gtx.put(entity);

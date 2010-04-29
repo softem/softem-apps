@@ -11,12 +11,7 @@ public class IndexController extends BaseController {
 
     @Override
     public Navigation run() throws Exception {
-        String words = asString("words");
-        if (words == null || words.length() == 0) {
-            requestScope("list", service.getAll());
-        } else {
-            requestScope("list", service.getByEmployeeName(words));
-        }
+        requestScope("list", service.getAll());
         return forward("index.jsp");
     }
 

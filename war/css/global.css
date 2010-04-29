@@ -4,6 +4,7 @@ body {color:#333; font-size:90%; font-family:Verdana, 'ＭＳ Ｐゴシック', 
 a {color:#033275; text-decoration:none;}
 a:hover {text-decoration:underline;}
 h1 {color:#ff5300; clear:both; font-size:130%; font-weight:bold; text-indent:-2px;}
+p {clear:both;}
 
 /* margin */
 #menu {padding:1em 30px 0 30px;}
@@ -36,3 +37,15 @@ th, td {padding:2px 4px;}
 .actions a {color:#a63600; font-size:90%;}
 
 #footer {background:#eee; font-size:80%; text-align:center;}
+
+/* link */
+.edit {background:url(../img/page_edit.png) no-repeat; float:left; display:block;
+	margin:0 5px 0 0; overflow:auto; height:16px; width:16px; text-indent:-9999px;}
+.delete {background:url(../img/cross.png) no-repeat; float:left; display:block;
+	margin:0 0 0 0; overflow:auto; height:16px; width:16px; text-indent:-9999px;}
+
+/* navigation */
+.navigation {list-style:none;}
+.navigation li {background:#eee; border:1px solid #ccc; display:block;
+	float:left; line-height:1em; margin:0 2px 1em 0; width:1em;
+	text-align:center; vertical-align:middle;}

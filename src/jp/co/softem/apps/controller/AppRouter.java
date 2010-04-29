@@ -6,6 +6,9 @@ public class AppRouter extends RouterImpl {
 
     public AppRouter() {
         addRouting(
+            "/{app}/{page}",
+            "/{app}?page={page}");
+        addRouting(
             "/{app}/edit/{key}/{version}",
             "/{app}/edit?key={key}&version={version}");
         addRouting(

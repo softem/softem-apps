@@ -43,7 +43,7 @@ public class EmployeeService extends BaseService<Employee> {
 
     public void insert(Employee entity) {
         GlobalTransaction gtx = Datastore.beginGlobalTransaction();
-        Key authKey = KeyFactory.stringToKey(entity.getAuthority());
+        Key authKey = KeyFactory.stringToKey(entity.getAuthorityKey());
         Authority authority = gtx.get(AuthorityMeta.get(), authKey);
         entity.getAuthorityRef().setModel(authority);
         gtx.put(entity);
@@ -54,7 +54,7 @@ public class EmployeeService extends BaseService<Employee> {
         GlobalTransaction gtx = Datastore.beginGlobalTransaction();
         Employee entity = gtx.get(baseMeta, key, version);
         BeanUtil.copy(input, entity);
-        Key authKey = KeyFactory.stringToKey(entity.getAuthority());
+        Key authKey = KeyFactory.stringToKey(entity.getAuthorityKey());
         Authority authority = gtx.get(AuthorityMeta.get(), authKey);
         entity.getAuthorityRef().setModel(authority);
         gtx.put(entity);
