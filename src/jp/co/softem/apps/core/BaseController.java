@@ -43,11 +43,11 @@ public abstract class BaseController extends Controller {
         String path = navi.getPath();
         boolean isRedirect = navi.isRedirect();
         if (isRedirect) {
-            sessionScope("page", path + "index.jsp");
+            sessionScope("include_page", path + "index.jsp");
             return new Navigation(path, isRedirect);
         } else {
             if (path.endsWith(".jsp")) {
-                sessionScope("page", basePath + path);
+                sessionScope("include_page", basePath + path);
                 return new Navigation("/template.jsp", isRedirect);
             } else {
                 return navi;

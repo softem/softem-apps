@@ -13,7 +13,7 @@
 	</div><!-- end of menu  -->
 
 	<div id="content">
-		<jsp:include page="${page}" flush="true" />
+		<jsp:include page="${include_page}" flush="true" />
 	</div><!-- end of content -->
 
 	<div id="footer">

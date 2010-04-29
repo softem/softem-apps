@@ -46,6 +46,7 @@ th, td {padding:2px 4px;}
 
 /* navigation */
 .navigation {list-style:none;}
-.navigation li {background:#eee; border:1px solid #ccc; display:block;
+.navigation li {background:#326bba; color:#fff; display:block;
 	float:left; line-height:1em; margin:0 2px 1em 0; width:1em;
 	text-align:center; vertical-align:middle;}
+.navigation a {background:#d8c061; color:#fff; display:block;}
