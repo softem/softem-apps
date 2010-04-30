@@ -12,9 +12,7 @@ public abstract class BaseController extends Controller {
 
     public static String MESSAGE = "message";
 
-    public static String ENCODE = "UTF-8";
-
-    public static int LIMIT = 10;
+    public static int LIMIT = 30;
 
     protected String onErrorPath;
 
