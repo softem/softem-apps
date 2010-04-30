@@ -47,6 +47,156 @@
 	<td>//input[@value='新規登録']</td>
 	<td></td>
 </tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=新規登録</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>authorityName</td>
+	<td>てすと１</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='新規登録']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=新規登録</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>authorityName</td>
+	<td>てすと２</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='新規登録']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=新規登録</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>authorityName</td>
+	<td>てすと３</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='新規登録']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=新規登録</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>authorityName</td>
+	<td>てすと４</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='新規登録']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=新規登録</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>authorityName</td>
+	<td>てすと５</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='新規登録']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=新規登録</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>authorityName</td>
+	<td>てすと６</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='新規登録']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=新規登録</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>authorityName</td>
+	<td>てすと７</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='新規登録']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=新規登録</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>authorityName</td>
+	<td>てすと８</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='新規登録']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=新規登録</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>authorityName</td>
+	<td>てすと９</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='新規登録']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=新規登録</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>authorityName</td>
+	<td>てすと１０</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='新規登録']</td>
+	<td></td>
+</tr>
 <!--社員マスタ-->
 <tr>
 	<td>clickAndWait</td>

@@ -33,6 +33,7 @@
 	</c:forEach>
 	</tbody>
 </table>
+<p>${pagenator.navigation}</p>
 </c:if>
 
 <jsp:include page="/master_menu.jsp"></jsp:include>

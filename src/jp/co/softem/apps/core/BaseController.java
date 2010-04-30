@@ -14,7 +14,7 @@ public abstract class BaseController extends Controller {
 
     public static String ENCODE = "UTF-8";
 
-    public static int LIMIT = 1;
+    public static int LIMIT = 10;
 
     protected String onErrorPath;
 
@@ -31,7 +31,7 @@ public abstract class BaseController extends Controller {
             Throwable c = e.getCause();
             String params = (c == null) ? e.getMessage() : c.getMessage();
             ms = ApplicationMessage.get("validator.exception", params);
-            onErrorPath = "error.jsp";
+            onErrorPath = "/error.jsp";
         }
         Validators v = new Validators(request);
         v.getErrors().put(MESSAGE, ms);
@@ -60,7 +60,7 @@ public abstract class BaseController extends Controller {
     }
 
     protected Pagenator createPagenator(int total, int count) {
-        return new Pagenator(total, count, page(), LIMIT);
+        return new Pagenator(total, count, page(), LIMIT, basePath);
     }
 
     protected int page() {

@@ -10,7 +10,8 @@
 <p id="message">${f:h(errors.message)}</p>
 
 <c:if test="${fn:length(list)>0}">
-<p class="count">${fn:length(list)}<fmt:message bundle="${rs}" key="count"/></p>
+<p>${pagenator.navigation}</p>
+<p class="count">${pagenator.label}</p>
 <table class="list">
 	<thead>
 		<tr>
@@ -34,6 +35,7 @@
 	</c:forEach>
 	</tbody>
 </table>
+<p>${pagenator.navigation}</p>
 </c:if>
 
 <jsp:include page="/master_menu.jsp"></jsp:include>

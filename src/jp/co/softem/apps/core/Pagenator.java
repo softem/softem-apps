@@ -18,14 +18,15 @@ public class Pagenator implements Serializable {
 
     private final String label;
 
-    public Pagenator(int total, int recordCount, int currentPage, int limit) {
+    public Pagenator(int total, int recordCount, int currentPage, int limit,
+            String basePath) {
         if (limit < 1) {
             throw new IllegalArgumentException(
                 "Please specify the number of pages is greater than 1.");
         }
         this.total = total;
 
-        BigDecimal b = new BigDecimal(total / limit);
+        BigDecimal b = new BigDecimal(total).divide(new BigDecimal(limit));
         int count = b.setScale(0, RoundingMode.CEILING).intValue();
         this.pageCount = (count < 1) ? 1 : count;
 
@@ -35,22 +36,29 @@ public class Pagenator implements Serializable {
         } else {
             this.currentPage = page;
         }
-        this.navigation = createNavigation();
+        this.navigation = createNavigation(basePath);
 
         int start = ((this.currentPage - 1) * limit + 1);
         this.label =
             total + "件中 " + start + " - " + (recordCount + start - 1) + "件";
     }
 
-    public String createNavigation() {
+    public String createNavigation(String basePath) {
+        int start = (currentPage > 5) ? currentPage - 5 : 1;
         StringBuffer sb = new StringBuffer("<ul class=\"navigation\">");
-        for (int i = 0; i < pageCount; i++) {
+        int count = 0;
+        for (int i = start; i < pageCount + 1; i++) {
             String link =
-                "<a href=\"" + (i + 1) + "\">" + (i + 1) + "</a>";
-            if (currentPage == (i + 1)) {
-                link = String.valueOf(i + 1);
+                "<a href=\"" + basePath + "index/" + i + "\">" + i + "</a>";
+            if (currentPage == i) {
+                link =
+                    "<span class=\"active\">" + String.valueOf(i) + "</span>";
             }
             sb.append("<li>").append(link).append("</li>");
+            count++;
+            if (count >= 10) {
+                break;
+            }
         }
         sb.append("</ul>");
         return String.valueOf(sb);
